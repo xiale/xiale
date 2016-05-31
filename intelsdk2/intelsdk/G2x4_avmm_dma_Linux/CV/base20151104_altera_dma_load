@@ -1,0 +1,35 @@
+#!/bin/sh
+module="altera_dma"
+device1="altera_dma1"
+device2="altera_dma2"
+device3="altera_dma3"
+device4="altera_dma4"
+mode="666"
+
+# load the module
+/sbin/insmod ./$module.ko $* || exit 1
+
+# remove stale nodes
+rm -f /dev/$device1
+rm -f /dev/$device2
+rm -f /dev/$device3
+rm -f /dev/$device4
+
+# create new device node
+#major=`grep -w $module /proc/devices | cut -f1 -d" "`
+major1=`grep -w $module /proc/devices | sed -n "1, 1p"| cut -f1 -d" "`
+major2=`grep -w $module /proc/devices | sed -n "2, 1p"| cut -f1 -d" "`
+major3=`grep -w $module /proc/devices | sed -n "3, 1p"| cut -f1 -d" "`
+major4=`grep -w $module /proc/devices | sed -n "4, 1p"| cut -f1 -d" "`
+
+mknod /dev/$device1 c $major1 0
+mknod /dev/$device2 c $major2 0
+mknod /dev/$device3 c $major3 0
+mknod /dev/$device4 c $major4 0
+
+# change permissions to allow all users to read/write
+chmod $mode /dev/$device1
+chmod $mode /dev/$device2
+chmod $mode /dev/$device3
+chmod $mode /dev/$device4
+
