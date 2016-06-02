@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>HTML5 VOD</title>
+		<link href="./H5Player/css/video.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body>
+		<div class="player">
+        	
+			<!-- videos -->
+			<div id="videos" class="videos">
+				<video preload="auto" id="video1" class="video1" draggable="true">
+					<source src="#">
+				</video>
+				<video preload="auto" id="video2" class="video2" draggable="true">
+					<source src="#">
+				</video>
+				<video preload="auto" id="video3" class="video3" draggable="true">
+					<source src="#">
+				</video>
+                <!-- VGA开始 -->
+                <div class="bigImgBox">
+                  <div id="picBox" class="picBox">
+                    <ul>
+                      <li> <a ><img src=""></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- VGA结束 -->
+			</div>
+
+			<div class="loading"><img src="H5Player/image/run.gif">Loading...</div>
+            <div class="replay"><img src="H5Player/image/replay.png">重播</div>
+            <div class="play_btn"><img src="H5Player/image/play.png"></div>
+            
+			<div id="controls_display" class="controls_display">
+			</div>
+
+			<div id="control_panel" class="control_panel">
+            
+				<!-- modes -->
+				<div id="modes" class="modes">
+					<div id="mode1" class="mode1"></div>
+					<div id="mode2" class="mode2"></div>
+					<div id="mode3" class="mode3"></div>
+					<div id="mode4" class="mode4"></div>
+					<div id="mode5" class="mode5"></div>
+					<div id="mode6" class="mode6"></div>
+				</div>
+				<div id="display_modes" class="display_modes"></div>
+				<div id="hide_modes" class="hide_modes"></div>
+
+				<!-- channels -->
+				<div id="channels" class="channels">
+					<div id="pre_channel" class="pre_channel"></div>
+					<div id="next_channel" class="next_channel"></div>
+				</div>
+
+				<!-- controls -->
+				<div id="controls" class="controls">
+                <!-- ppt list -->
+                	<div class="ppt">
+                        <div class="list">
+                         <span id="prevTop" class="btn prev"></span>
+                         <span id="nextTop" class="btn next"></span>
+                           <div class="smImgBox">
+                           <span id="prev" class="btn prev"></span>
+                           <span id="next" class="btn next"></span>
+                           <div id="listBox" class="listBox">
+                              <ul class="cf">
+                                <li class="on"><i class="arr2"></i><img src=""></li>
+                                <li><i class="arr2"></i><img src=""></li>
+                              </ul>
+                           </div>
+                           </div>
+                           <div class="clear"></div>
+                       </div>
+                       <div class="clear"></div>
+                    </div>
+                    <!-- ppt over -->
+					<div id="display_image" class="display_image"></div>
+					<div id="display_dot" class="display_dot"></div>
+					<div id="display_click_dot" class="display_click_dot"></div>
+					<div id="controls_background" class="controls_background"></div>
+
+					<div id="play" class="play"></div>
+					<div id="pause" class="pause"></div>
+					<div id="stop" class="stop"></div>
+					<div id="progess" class="progess">
+						<div id="progess_track" class="progess_track"></div>
+						<div id="progess_display" class="progess_display"></div>
+						<input id="scrub" class="scrub" type="range" value="0" max="900">
+						<div class="timer">
+                        	<span id="position" class="position">00:00:00</span>
+							/
+							<span id="duration" class="duration">00:00:00</span>
+                        </div>
+					</div>
+					<div id="hd_button" class="hd_button"></div>
+					<div id="sd_button" class="sd_button"></div>
+					<div id="volume_max" class="volume_max"></div>
+					<div id="volume_min" class="volume_min"></div>
+					<div id="full_screen" class="full_screen"></div>
+					<div id="normal_screen" class="normal_screen"></div>
+
+					<div id="volume_background" class="volume_background">
+						<div id="volume_bar" class="volume_bar"></div>
+						<div id="volume_track" class="volume_track"></div>
+						<div id="volume_thumb" class="volume_thumb"></div>
+					</div>
+					<div id="volume_display" class="volume_display"></div>
+				</div>
+			</div>
+
+			<dl id="alert_win" class="alert_win">
+				<dt><span id="alert_x">X</span>调试信息</dt>
+				<dd id="alert_text" class="alert_text">
+				</dd>
+				<dt><span id="alert_clear">清空</span></dt>
+			</dl>
+
+			<dl id="version_win" class="version_win">
+				<dt><span id="version_x">X</span>版本信息</dt>
+				<dd id="version_text" class="version_text">
+					播放器版本：1.0.0.3
+				</dd>
+			</dl>
+		</div>
+
+		<div id="poster" class="poster"></div>
+	</body>
+	<script src="./H5Player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="./H5Player/js/jqueryPhoto.js" type="text/javascript"></script>
+	<script src="./H5Player/js/parseXML.js"></script>
+	<script src="./H5Player/js/video.js"></script>
+</html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="user-scalable=0" />
+<title>Reach Html5 Video</title>
+<link type="text/css" rel="stylesheet" href="padPlayer/css/style.css">
+<link type="text/css" rel="stylesheet" href="padPlayer/js/mediaelement/mediaelementplayer.css" />
+
+<!--script src="padPlayer/js/easeljs/easeljs-0.5.0.min.js"></script-->
+<script type="text/javascript" src="APIConstants.js"></script> 
+<script type="text/javascript" src="APIWrapper.js"></script> 
+<script type="text/javascript" src="SCOFunctions.js"></script>
+<script src="padPlayer/js/jquery-1.8.0.min.js"></script>
+<script src="padPlayer/js/jquery.lazyload.min.js"></script>
+<script src="padPlayer/js/mediaelement/mediaelementplayer.min.js"></script>
+<script src="padPlayer/js/html5Player.min.js"></script>
+</head>
+<body>
+<div id="contents">
+	<div id="videoConn" class="video-left">
+		<video id="videoPlayer" width="0" height="0">
+		  <source type="video/mp4">
+			Your browser does not support html5.
+		</video>
+	</div>
+	<div id="imageConn" class="video-right">
+		<img id="imgContainer" src="padPlayer/css/pics/blackdefault.jpg" />
+	</div>
+</div>
+<div id="picIndexs">
+	<div id="wrap">
+		<canvas class="scrollBtn left" width="40" height="100"></canvas>
+		<canvas class="scrollBtn right" width="40" height="100"></canvas>
+		<div id="scrollConn">
+			<div id="scroll"></div>
+		</div>
+	</div>
+</div>
+<div id="blankDiv"></div>
+<img id="pageLoding" src="padPlayer/css/pics/pageLoading.gif"></img>
+</body>
+</html>

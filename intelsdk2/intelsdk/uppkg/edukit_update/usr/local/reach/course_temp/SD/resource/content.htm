@@ -1,0 +1,117 @@
+<script type="text/javascript">
+function isSupportHtml5Video() {
+	var ua = navigator.userAgent.toLowerCase();
+	return ua.indexOf('ipad') > 0 || ua.indexOf('iphone') > 0 || ua.indexOf('android') > 0;
+}
+if(isSupportHtml5Video()) {
+	window.location.href = 'content_pad.htm';
+}
+</script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+    <!-- 
+    Smart developers always View Source. 
+    
+    This application was built using Adobe Flex, an open source framework
+    for building rich Internet applications that get delivered via the
+    Flash Player or to desktops via Adobe AIR. 
+    
+    Learn more about Flex at http://flex.org 
+    // -->
+    <head>
+        <title></title>
+        <meta name="google" value="notranslate" />         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!-- Include CSS to eliminate any default margins/padding and set the height of the html element and 
+             the body element to 100%, because Firefox, or any Gecko based browser, interprets percentage as 
+             the percentage of the height of its parent container, which has to be set explicitly.  Fix for
+             Firefox 3.6 focus border issues.  Initially, don't display flashContent div so it won't show 
+             if JavaScript disabled.
+        -->
+        <style type="text/css" media="screen"> 
+            html, body  { height:100%; }
+            body { margin:0; padding:0; overflow:auto; text-align:center; 
+                   background-color: #000000; }   
+            object:focus { outline:none; }
+            #flashContent { display:none; }
+        </style>
+            
+		<script type="text/javascript" src="APIConstants.js"></script> 
+		<script type="text/javascript" src="APIWrapper.js"></script> 
+		<script type="text/javascript" src="SCOFunctions.js"></script>
+        <script type="text/javascript" src="FPlayer/swfobject.js"></script>
+        <script type="text/javascript" src="FPlayer/loadSwf.js"></script>
+        <script type="text/javascript" src="FPlayer/jsAction.js"></script>
+		<script type="text/javascript">
+			function getQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return r[2].replace(/!/g, "/"); return null;
+			}
+			
+			var sdVideoUrl = getQueryString('sdVideoUrl'),
+				hdVideoUrl = getQueryString('hdVideoUrl'),
+				sdStreamerUrl = getQueryString('sdStreamerUrl'),
+				hdStreamerUrl = getQueryString('hdStreamerUrl'),
+				sdFileUrl = getQueryString('sdFileUrl'),
+				hdFileUrl = getQueryString('hdFileUrl'),
+				startPlayTime = getQueryString('startPlayTime'),
+				isShowHSBtn = getQueryString('isShowHSBtn');
+				
+			if(sdVideoUrl) {
+				flashvars.sdVideoUrl = sdVideoUrl;
+			}
+			
+			if(hdVideoUrl) {
+				flashvars.hdVideoUrl = hdVideoUrl;
+			}
+			
+			if(sdStreamerUrl) {
+				flashvars.sdStreamerUrl = sdStreamerUrl;
+			}
+			
+			if(hdStreamerUrl) {
+				flashvars.hdStreamerUrl = hdStreamerUrl;
+			}
+			
+			if(sdFileUrl) {
+				flashvars.sdFileUrl = sdFileUrl;
+			}
+			
+			if(hdFileUrl) {
+				flashvars.hdFileUrl = hdFileUrl;
+			}
+			
+			if(startPlayTime) {
+				flashvars.startPlayTime = startPlayTime;
+			}
+			
+			if(isShowHSBtn == 1) {
+				flashvars.isShowHSBtn = true;
+			} else {
+				flashvars.isShowHSBtn = false;
+			}
+			
+			window.onbeforeunload = onbeforeunload_handler;
+			window.onunload = onunload_handler;
+			
+			function onbeforeunload_handler(){
+				unloadPage();				
+			}
+			
+			function onunload_handler(){
+				unloadPage();
+			}
+			
+			
+		</script>
+    </head>
+    <body>
+        <!-- SWFObject's dynamic embed method replaces this alternative HTML content with Flash content when enough 
+             JavaScript and Flash plug-in support is available. The div is initially hidden so that it doesn't show
+             when JavaScript is disabled.
+        -->
+        <div id="flashContent"></div>  
+   </body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextTable>
+  <Text>
+    <X>0</X>
+    <Y>50</Y>
+    <Alpha>128</Alpha>
+    <PosType>0</PosType>
+    <ShowTime>1</ShowTime>
+    <MsgText>reach</MsgText>
+    <Enable>1</Enable>
+    <R>255</R>
+    <G>255</G>
+    <B>255</B>
+  </Text>
+</TextTable>

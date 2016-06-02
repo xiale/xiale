@@ -1,0 +1,941 @@
+/*!- html5 player v1.0.0.1 szreach.com -*/
+
+@CHARSET "UTF-8";
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #333;
+    color: #ccc;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+/*---------------------------------- videos -------------------------------- */
+
+.videos {
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+}
+
+.video1 {
+    display: block;
+    position: absolute;
+    z-index: 0;
+}
+
+.video2 {
+    display: none;
+    position: absolute;
+    z-index: 0;
+}
+
+.video3 {
+    display: none;
+    position: absolute;
+    z-index: 0;
+}
+
+/*---------------------------------- Modes --------------------------------- */
+
+.display_modes {
+    display: none;
+    position: absolute;
+    z-index:104;
+    left: 0px;
+    bottom: 50px;
+    width: 20px;
+    height: 41px;
+    background-color: transparent;
+    background-image: url(../image/displayModes.png);
+    opacity: 0.92;
+    cursor: pointer;
+}
+
+.hide_modes {
+    display: block;
+    position: absolute;
+    z-index: 104;
+    left: 177px;
+    bottom: 50px;
+    width: 20px;
+    height: 41px;
+    background-color: transparent;
+    background-image: url(../image/hideModes.png);
+    opacity: 0;
+    cursor: pointer;
+}
+
+.modes {
+    display: block;
+    position: absolute;
+    z-index: 103;
+    left: 0px;
+    bottom: 50px;
+    width: 193px;
+    height: 41px;
+    background-color: transparent;
+    background-image: url(../image/screenCloseBg.png);
+    opacity: 0.92;
+}
+
+.mode1 {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    width: 28px;
+    height: 29px;
+    background-image: url(../image/oneScreenBtnNormal.png);
+}
+
+.mode1:hover {
+    background-image: url(../image/oneScreenBtnHover.png);
+}
+
+.mode1:active {
+    background-image: url(../image/oneScreenBtnActive.png);
+}
+
+.mode2 {
+    display: none;
+    position: absolute;
+    left: 38px;
+    top: 5px;
+    width: 27px;
+    height: 29px;
+    background-image: url(../image/TwoScreenNormalBtnNormal.png);
+}
+
+.mode2:hover {
+    background-image: url(../image/TwoScreenNormalBtnHover.png);
+}
+
+.mode2:active {
+    background-image: url(../image/TwoScreenNormalBtnActive.png);
+}
+
+.mode3 {
+    display: none;
+    position: absolute;
+    left: 65px;
+    top: 5px;
+    width: 27px;
+    height: 29px;
+    background-image: url(../image/TwoScreenLeftBtnNormal.png);
+}
+
+.mode3:hover {
+    background-image: url(../image/TwoScreenLeftBtnHover.png);
+}
+
+.mode3:active {
+    background-image: url(../image/TwoScreenLeftBtnActive.png);
+}
+
+.mode4 {
+    display: none;
+    position: absolute;
+    left: 92px;
+    top: 5px;
+    width: 27px;
+    height: 29px;
+    background-image: url(../image/TwoScreenMidBtnNormal.png);
+}
+
+.mode4:hover {
+    background-image: url(../image/TwoScreenMidBtnHover.png);
+}
+
+.mode4:active {
+    background-image: url(../image/TwoScreenMidBtnActive.png);
+}
+
+.mode5 {
+    display: none;
+    position: absolute;
+    left: 119px;
+    top: 5px;
+    width: 27px;
+    height: 29px;
+    background-image: url(../image/threeScreenLeftBtnNormal.png);
+}
+
+.mode5:hover {
+    background-image: url(../image/threeScreenLeftBtnHover.png);
+}
+
+.mode5:active {
+    background-image: url(../image/threeScreenLeftBtnActive.png);
+}
+
+.mode6 {
+    display: none;
+    position: absolute;
+    left: 146px;
+    top: 5px;
+    width: 28px;
+    height: 29px;
+    background-image: url(../image/threeScreenRightNormal.png);
+}
+
+.mode6:hover {
+    background-image: url(../image/threeScreenRightHover.png);
+}
+
+.mode6:active {
+    background-image: url(../image/threeScreenRightActive.png);
+}
+
+/*-------------------------------- channels -------------------------------- */
+
+.channels {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    width: 99%;
+}
+
+.pre_channel {
+    display: none;
+    position: absolute;
+    left: 0px;
+    top: 283px;
+    width: 38px;
+    height: 154px;
+    background-image: url(../image/leftChannelBtnNormal.png);
+}
+
+.pre_channel:hover {
+    background-image: url(../image/leftChannelBtnHover.png);
+}
+
+.pre_channel:active {
+    background-image: url(../image/leftChannelBtnActive.png);
+}
+
+.next_channel {
+    display: none;
+    position: absolute;
+    top: 283px;
+    right: 0px;
+    width: 38px;
+    height: 154px;
+    background-image: url(../image/rightChannelBtnNormal.png);
+}
+
+.next_channel:hover {
+    background-image: url(../image/rightChannelBtnHover.png);
+}
+
+.next_channel:active {
+    background-image: url(../image/rightChannelBtnActive.png);
+}
+
+/*-------------------------------- controls -------------------------------- */
+
+.controls {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 54px;
+    background-color: transparent;
+}
+
+.controls_display {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 54px;
+    background-color: transparent;
+}
+
+.controls_background {
+    width: 100%;
+    bottom: 0px;
+    height: 54px;
+    background: rgba(30, 30, 30, .95);
+    opacity: 0.92;
+}
+
+.display_dot {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: -7px;
+}
+
+.display_click_dot {
+    visibility: hidden;
+    position: absolute;
+    z-index: 3;
+    left: 0px;
+    top: -7px;
+}
+
+.display_image {
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    z-index: 5;
+    margin-left: -60px;
+    bottom: 56px;
+    width: 128px;
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 4px;
+    padding: 4px;
+    box-sizing: content-box;
+    line-height: 150%;
+    border: 1px solid rgba(0, 0, 0, .9);
+}
+
+.play {
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    width: 56px;
+    height: 44px;
+    background-image: url(../image/playBtnNormal.png);
+}
+
+.play:hover {
+    background-image: url(../image/playBtnHover.png);
+}
+
+.play:active {
+    background-image: url(../image/playBtnDown.png);
+}
+
+.pause {
+    display: none;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    width: 44px;
+    height: 44px;
+    background-image: url(../image/pauseBtnNormal.png);
+    cursor: pointer;
+}
+
+.pause:hover {
+    background-image: url(../image/pauseBtnHover.png);
+}
+
+.pause:active {
+    background-image: url(../image/pauseBtnDown.png);
+}
+
+.stop {
+    display: block;
+    position: absolute;
+    left: 66px;
+    top: 15px;
+    width: 44px;
+    height: 44px;
+    background-image: url(../image/stopBtnNormal.png);
+    cursor: pointer;
+}
+
+.stop:hover {
+    background-image: url(../image/stopBtnHover.png);
+}
+
+.stop:active {
+    background-image: url(../image/stopBtnDown.png);
+}
+
+.progess {
+    position: absolute;
+    left: 0px;
+    top: -10px;
+    width: 100%;
+}
+
+.progess_display {
+    position: absolute;
+    visibility: hidden;
+    left: 50px;
+    top: -16px;
+    width: 64px;
+    height: 16px;
+    color: #fff;
+    z-index: 10000;
+}
+
+.timer {
+    position: absolute;
+    top: 34px;
+    left: 120px;
+    font-size: 12px;
+    font-family: arial;
+    color: #666;
+}
+
+.position, .duration {
+    color: #999;
+}
+
+.duration {
+    color: #666;
+    left: 176px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    z-index: 2;
+    border: none;
+    outline: medium;
+    border-radius: 0px;
+    background-size: 100% 4px;
+    background-repeat: repeat-x;
+    background-image: url(../image/progressbar.png);
+    background-position: center center;
+    height: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    z-index: 1000000;
+    height: 28px;
+    width: 18px;
+    margin-top: -5px;
+    margin-left: 0px;
+    background-image: url(../image/progressThumbBtn.png);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    z-index: 2;
+    border: none;
+    border-radius: 0px;
+    height: 4px;
+    background-size: 0px 4px;
+    background-image: url(../image/progressBarPer.png);
+    background-repeat: no-repeat;
+}
+
+.progess_track {
+    position: absolute;
+    border: none;
+    border-radius: 0px;
+    top: 11px;
+    left: 0px;
+    width: 0px;
+    height: 4px;
+    background-size: 100% 4px;
+    background-image: url(../image/progressBarPer.png);
+    background-repeat: no-repeat;
+}
+
+.scrub {
+    width: 900px;
+    height: 12px;
+}
+
+.hd_button {
+    display: none;
+    position: absolute;
+    right: 85px;
+    top: 13px;
+    width: 38px;
+    height: 28px;
+    background-image: url(../image/hdBtnNormal_en_US.png);
+}
+
+.hd_button:hover {
+    background-image: url(../image/hdBtnHover_en_US.png);
+}
+
+.hd_button:active {
+    background-image: url(../image/hdBtnActive_en_US.png);
+}
+
+.sd_button {
+    display: none;
+    position: absolute;
+    right: 85px;
+    top: 13px;
+    width: 38px;
+    height: 28px;
+    background-image: url(../image/sdBtnNormal_en_US.png);
+}
+
+.sd_button:hover {
+    background-image: url(../image/sdBtnHover_en_US.png);
+}
+
+.sd_button:active {
+    background-image: url(../image/sdBtnActive_en_US.png);
+}
+
+.volume_max {
+    display: block;
+    position: absolute;
+    right: 47px;
+    top: 13px;
+    width: 28px;
+    height: 28px;
+    background-image: url(../image/volumeMaxNormal.png);
+}
+
+.volume_max:hover {
+
+    background-image: url(../image/volumeMaxHover.png);
+}
+
+.volume_max:active {
+
+    background-image: url(../image/volumeMaxActive.png);
+}
+
+.volume_min {
+    display: none;
+    position: absolute;
+    right: 47px;
+    top: 13px;
+    width: 28px;
+    height: 28px;
+    background-image: url(../image/volumeMinNormal.png);
+}
+
+.volume_min:hover {
+    background-image: url(../image/volumeMinHover.png);
+}
+
+.volume_min:active {
+    background-image: url(../image/volumeMinActive.png);
+}
+
+.volume_background {
+    position: absolute;
+    right: 54px;
+    border-radius: 8px;
+    top: -120px;
+    width: 16px;
+    height: 134px;
+    background: rgba(0, 0, 0, .9);
+    overflow: hidden;
+}
+
+.volume_bar {
+    position: absolute;
+    left: 6px;
+    top: 10px;
+    width: 4px;
+    border-radius: 2px;
+    height: 102px;
+    background: #999;
+}
+
+.volume_track {
+    position: absolute;
+    left: 6px;
+    top: 10px;
+    width: 4px;
+    border-radius: 2px;
+    height: 102px;
+    background: #34a150;
+}
+
+.volume_thumb {
+    position: absolute;
+    left: 3px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    margin: 0px 0px;
+    cursor: pointer;
+    background: #999;
+}
+
+.volume_display {
+    position: absolute;
+    right: 15px;
+    bottom: 150px;
+    width: 25px;
+    height: 18px;
+    margin: 0px 0px;
+    background-color: #000;
+    color: #fff;
+}
+
+.full_screen {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    width: 28px;
+    height: 29px;
+    background-image: url(../image/fullScreenNormal.png);
+}
+
+.full_screen:hover {
+    background-image: url(../image/fullScreenHover.png);
+}
+
+.full_screen:active {
+    background-image: url(../image/fullScreenActive.png);
+}
+
+.normal_screen {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    width: 28px;
+    height: 29px;
+    background-image: url(../image/normalScreenNormal.png);
+}
+
+.normal_screen:hover {
+    background-image: url(../image/normalScreenHover.png);
+}
+
+.normal_screen:active {
+    background-image: url(../image/normalScreenActive.png);
+}
+
+/*--------------------------------- alert ---------------------------------- */
+
+.poster {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background:url(../image/run.gif);
+    background-repeat: no-repeat;
+}
+
+.player {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.alert_win, .version_win {
+    position: absolute;
+    width: 400px;
+    background: #444;
+    display: none;
+}
+
+.alert_win dt, .version_win dt {
+    display: block;
+    background: #222;
+    color: #ccc;
+    height: 40px;
+    padding: 0 0px 0 10px;
+    line-height: 40px;
+    font-size: 14px;
+}
+
+.alert_win dt span, .version_win dt span {
+    float: right;
+    font-family: arial;
+    color: #999;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.alert_win dt span:hover, .version_win dt span:hover {
+    background: #333;
+    cursor: pointer;
+}
+
+.alert_win dd, .version_win dd {
+    height: 320px;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    color: #999;
+    font-size: 12px;
+    word-break: break-all;
+    line-height: 180%;
+}
+
+.version_win {
+    top: 50%;
+    left: 50%;
+    margin: -80px 0 0 -200px;
+}
+
+.version_win dd {
+    height: 120px;
+    text-align: center;
+    padding: 40px 10px;
+}
+
+/*ppt*/
+.ppt {
+    display: none;
+    width: 100%;
+    margin: 15px auto 0px;
+    position: absolute;
+    bottom: 54px;
+}
+
+.ppt .mod18 {
+    width: 677px;
+    position: relative;
+}
+
+.ppt #prev {
+    height: 48px;
+    width: 24px;
+    position: absolute;
+    z-index: 99;
+    left: 0px;
+    top: 30px;
+    cursor: pointer;
+}
+
+.ppt #next {
+    height: 48px;
+    width: 30px;
+    position: absolute;
+    z-index: 99;
+    top: 30px;
+    right: -8px;
+    cursor: pointer;
+}
+
+.ppt #prevTop {
+    display: none
+}
+
+.ppt #nextTop {
+    display: none
+}
+
+.ppt #prev:after, .ppt #next:after {
+    content: " ";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 3px solid #ddd;
+    top: 0.6rem;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -moz-transform: rotate(45deg); /* Firefox */
+    -webkit-transform: rotate(45deg); /* Safari å’? Chrome */
+    -o-transform: rotate(45deg);
+}
+
+.ppt #prev:after {
+    border-color: transparent transparent #999 #999;
+}
+
+.ppt #next:after {
+    border-color: #999 #999 transparent transparent;
+}
+
+.ppt li {
+    float: left;
+}
+
+.bigImgBox li {
+    position: relative;
+    color: #fff;
+}
+
+.bigImgBox a {
+    display: block;
+    position: absolute;
+    color: #fff;
+    widows: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.bigImgBox a img {
+    display: block;
+    widows: 100%;
+}
+
+.bigImgBox {
+    display: none;
+    width: 480px;
+    height: 360px;
+    position: relative;
+}
+
+.picBox {
+    width: 480px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.picBox ul {
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.picBox li {
+    width: 688px;
+    height: 100%;
+    float: left;
+}
+
+.ppt .list {
+    background: rgba(0, 0, 0, .8);
+    padding: 1px 10px 10px 10px;
+}
+
+.ppt .smImgBox {
+    width: 100%;
+    height: 101px;
+    margin-top: 12px;
+    position: relative;
+}
+
+.ppt .listBox {
+    width: 100%;
+    height: 101px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.ppt .listBox ul {
+    height: 101px;
+    position: absolute;
+    padding-left: 0px;
+}
+
+.ppt .listBox li {
+    width: 134px;
+    height: 101px;
+    cursor: pointer;
+    position: relative;
+    padding: 0 4px 0 4px;
+}
+
+.ppt .listBox li i {
+    display: none;
+}
+
+.ppt .listBox li a {
+    display: block;
+    width: 134px;
+    height: 101px;
+}
+
+.ppt .listBox .on img {
+    border: 2px solid #f80;
+    width: 130px;
+    height: 97px;
+}
+
+.ppt .listBox .on {
+    background: url(../images/img_bg.jpg) center top no-repeat;
+}
+
+.ppt .listBox .on i {
+    display: block;
+}
+
+.ppt .left_top {
+    font-family: Arial;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background: #333
+}
+
+/*loading*/
+.loading, .replay, .play_btn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -20px 0 0 -80px;
+    border-radius: 20px;
+    background: #333;
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    color: #999;
+    font-family: arial;
+    display: none;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.loading img {
+    z-index: 100000;
+    float: left;
+    margin: 0 10px 0 10px;
+    display: inline;
+}
+
+.replay {
+    color: #34a150;
+    border: 2px solid #34a150;
+    background: rgba(0, 0, 0, .8);
+    width: 120px;
+    margin-left: -60px;
+}
+
+.replay img {
+    z-index: 100000;
+    float: left;
+    margin: 0 10px 0 10px;
+    display: inline;
+}
+
+.play_btn {
+    color: #34a150;
+    border: 2px solid #34a150;
+    background: rgba(0, 0, 0, .6);
+    width: 80px;
+    margin: -40px 0 0 -40px;
+    height: 80px;
+    border-radius: 40px;
+}
+
+.play_btn img {
+    z-index: 100000;
+    margin: 18px 0 0 25px;
+    display: inline;
+}

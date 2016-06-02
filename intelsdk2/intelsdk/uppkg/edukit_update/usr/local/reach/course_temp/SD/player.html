@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+	<head>
+		<script language="javascript">
+            function getUrlParam(name){
+                var reg = new RegExp("(^|&)"+   name   +"=([^&]*)(&|$)");      
+                var   r   =   window.location.search.substr(1).match(reg);
+                if (r != null) 
+                {
+                    return unescape(r[2]);
+                }
+                return   null;
+            }
+            var sServerIp = getUrlParam("ip");
+            if (sServerIp == null) {
+                sServerIp = "localhost";
+            }
+            var nSeekTime = getUrlParam("time");
+            if (nSeekTime == null) {
+                nSeekTime = 0;
+            }
+            var nUserId = getUrlParam("userid");
+            if (nUserId == null) {
+                nUserId = -1;
+            }
+            var nFileId = getUrlParam("fileid");
+            if (nFileId == null) {
+                nFileId = -1;
+            }
+            window.location = "./resource/content.htm?ip=" + sServerIp
+                + "&userid=" + nUserId + "&fileid=" + nFileId 
+                + "&time=" + nSeekTime;
+		</script> 
+	</head>
+<body/>
+</html>
