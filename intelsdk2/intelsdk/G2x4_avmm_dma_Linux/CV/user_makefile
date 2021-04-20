@@ -1,6 +1,0 @@
-#!/bin/sh
-
-rm -f ./user/encode/caputure
-gcc ./user/encode/caputure.c -o ./user/encode/caputure
-#rm -f ./user/user
-#gcc ./user/user.c -o ./user/user

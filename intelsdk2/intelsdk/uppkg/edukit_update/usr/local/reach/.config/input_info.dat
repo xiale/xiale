@@ -1,8 +1,0 @@
-[ipc-input1]
-proctype:=0
-status:=0
-ip:=192.168.4.152
-[ipc-input2]
-proctype:=1
-status:=0
-ip:=192.168.4.154
